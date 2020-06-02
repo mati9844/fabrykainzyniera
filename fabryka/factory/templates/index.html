@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -7,8 +9,8 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona główna</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Strona-główna.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'Strona-główna.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     
@@ -29,7 +31,7 @@
   </head>
   <body data-home-page="Strona-główna.html" data-home-page-title="Strona główna" class="u-body"><header class="u-clearfix u-header u-header" id="sec-d0a0"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1">
-          <img src="images/logo.png" class="u-logo-image u-logo-image-1" data-image-width="290.9">
+          <img src={% static 'images/logo.png' %} class="u-logo-image u-logo-image-1" data-image-width="290.9">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0;">
