@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd3e29ab-f454-4fd3-8eea-ac2259bdaadd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/fabryka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/fabryka/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/factory/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/factory/static/Logowanie.html" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/static/Logowanie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/factory/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/factory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabryka/factory/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
