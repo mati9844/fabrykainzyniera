@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd3e29ab-f454-4fd3-8eea-ac2259bdaadd" name="Default Changelist" comment="" />
+    <list default="true" id="cd3e29ab-f454-4fd3-8eea-ac2259bdaadd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/fabryka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/fabryka/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/factory/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/factory/static/Logowanie.html" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/static/Logowanie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/factory/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/factory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabryka/factory/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/fabryka/factory/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +23,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1cPJXpyEpWWHL7F4UELz7Rbj4tJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,21 +34,24 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../WWW/Ćwiczenia wykładowe 4/Wyklad" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Desktop\wwwprojc\fabrykainzyniera\fabryka\factory\static" />
       <recent name="D:\python\projects\fabrykainzyniera\fabryka\factory" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
@@ -52,5 +67,18 @@
       <updated>1590424337759</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

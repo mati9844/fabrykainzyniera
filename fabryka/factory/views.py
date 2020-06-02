@@ -6,5 +6,8 @@ from django.template import loader
 
 def index(request):
     template = loader.get_template('index.html')
+    return HttpResponse(template.render())
 
+def logowanie(request):
+    template = loader.get_template('Logowanie.html')
     return HttpResponse(template.render())
