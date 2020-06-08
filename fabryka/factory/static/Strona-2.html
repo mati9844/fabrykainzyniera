@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -7,8 +9,8 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona 2</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Strona-2.css" media="screen">
+    <link rel="stylesheet" href="{% static 'nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'Strona-2.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     
@@ -29,9 +31,9 @@
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
   </head>
-  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-d0a0"><div class="u-clearfix u-sheet u-sheet-1">
+  <body data-home-page="Strona-2.html" data-home-page-title="Strona-2" class="u-body"><header class="u-clearfix u-header u-header" id="sec-d0a0"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1">
-          <img src="images/logo.png" class="u-logo-image u-logo-image-1" data-image-width="290.9">
+          <img src={% static 'images/logo.png' %} class="u-logo-image u-logo-image-1" data-image-width="290.9">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0;">
@@ -75,9 +77,12 @@
     <section class="u-align-center u-clearfix u-section-1" id="sec-7b10">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div alt="" class="u-image u-image-circle u-image-1" data-image-width="982" data-image-height="1280"></div>
-        <h2 class="u-text u-text-1">Janusz Kowalski</h2>
-        <p class="u-text u-text-2">prof. dr hab. inż.</p>
-        <a href="#" class="u-black u-border-radius-50 u-btn u-btn-round u-button-style u-text-body-alt-color u-btn-1">Wyloguj</a>
+        {% if user.is_authenticated %}
+        <h2 class="u-text u-text-1">{{ user.username }}</h2>
+        <p><a href="{% url 'logout' %}" class="u-black u-border-radius-50 u-btn u-btn-round u-button-style u-text-body-alt-color u-btn-1">Wyloguj</a></p>
+        {% else %}
+        <p>You are not logged in</p>
+        {% endif %}
       </div>
     </section>
     <section class="u-clearfix u-section-2" id="sec-53a6">
