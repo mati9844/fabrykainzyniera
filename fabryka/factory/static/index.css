@@ -1,0 +1,48 @@
+/*central layout section*/
+.parallax {
+  background-image: url("images/tul.JPG");
+  height: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.central-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+  width: 800px;
+  margin: auto;
+  top: 20%;
+  bottom: 20%;
+  background-color: DarkSlateGrey;
+  color: white;
+  padding: 60px;
+  text-align: center;
+}
+
+.central-container p {
+  font-size: 18px;
+  margin: 15px;
+}
+.central-container h6 {
+  font-size: 18px;
+  margin: 10px;
+}
+.central-container h5 {
+  font-size: 21px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .central-container {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .central-container {
+    width: 100%;
+  }
+}
+/*end of central layout section*/

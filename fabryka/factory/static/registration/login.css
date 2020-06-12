@@ -1,0 +1,95 @@
+/*central layout section*/
+.parallax {
+  background-image: url("../images/tul.JPG");
+  height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.central-container input {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid DarkSlateGrey;
+  padding: 15px;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+button {
+  text-align: center;
+  padding: 15px 30px;
+  color: DarkSlateGrey;
+  border: 1px solid DarkSlateGrey;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 17px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+button:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: DarkSlateGrey;
+}
+
+label {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+}
+
+.central-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+  top: 15%;
+  bottom: 15%;
+  right: 0;
+  left: 0;
+  width: 450px;
+  margin: 0 auto;
+  background-color: DarkSlateGrey;
+
+  padding: 60px;
+}
+
+.error {
+  padding: 5px 20px;
+  color: white;
+  border-radius: 15px;
+  background-color: red;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .central-container {
+    width: 100%;
+    top: 10%;
+  }
+
+  .central-container input,
+  button,
+  label {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    font-size: 25px;
+  }
+}
+/*end of central layout section*/
