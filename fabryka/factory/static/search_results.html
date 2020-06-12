@@ -5,7 +5,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Strona główna</title>
+    <title>Wynik wyszukiwania</title>
     <link rel="stylesheet" href="{% static 'menu_bar.css' %}">
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,16 +32,19 @@
       </nav>
     </header>
 
+<div class="parallax">
+<div class="central-container">
+  <h1>Wynik wyszukiwania</h1>
 
-    <div class="parallax">
-      <div class="central-container">
-        <i class="fa fa-quote-left" style="font-size:70px;"></i>
-        <p>Do sukcesu nie ma windy, trzeba iść po schodach</p><br>
-        <h6>Team</h6>
-        <h5>Fabryka Inżyniera</h5>
-      </div>
-    </div>
-
+  <ol>
+    {% for ListaPrac in object_list %}
+      <li>
+        {{ ListaPrac.temat_praca }}
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+</div>
 
     <footer>
       <p>Copyright &copy; 2020 - Fabryka Inżyniera</p>

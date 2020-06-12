@@ -15,15 +15,17 @@
       <nav>
         <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a>
         <div class="search-container">
-          <input type="text" placeholder="Wyszukaj prowadzącego..">
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <form action="{% url 'search_results' %}" method="get">
+            <input type="text" placeholder="Wyszukaj prowadzącego.." name="q">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
         </div>
         {% if user.is_authenticated %}
         <form action="{% url 'home' %}">
           <button>Profil</button>
         </form>
         {% else %}
-        <form action="#">
+        <form action="{% url 'login' %}">
           <button>Logowanie</button>
         </form>
         {% endif %}
