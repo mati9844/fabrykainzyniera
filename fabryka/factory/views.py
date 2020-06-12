@@ -15,10 +15,8 @@ class HomePageView(TemplateView):
     template_name = 'index.html'
 
 
-@login_required(login_url='/accounts/login/')
-def user_page(request):
-    template = loader.get_template('Strona-2.html')
-    return HttpResponse(template.render())
+class ProfileView(TemplateView):
+    template_name = 'profile.html'
 
 
 class SearchResultsView(ListView):

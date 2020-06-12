@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="{% static 'menu_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a>
+        <div class="search-container">
+          <form action="{% url 'search_results' %}" method="get">
+            <input type="text" placeholder="Wyszukaj prowadzącego.." name="q">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        {% if user.is_authenticated %}
+        <form action="{% url 'home' %}">
+          <button>Profil</button>
+        </form>
+        {% else %}
+        <form action="{% url 'login' %}">
+          <button>Logowanie</button>
+        </form>
+        {% endif %}
+      </nav>
+    </header>
+
+
+    <div class="parallax">
+      <div class="central-container">
+        <h2>{{ user.username }}</h2>
+        <p><a href="{% url 'logout' %}">Wyloguj</a></p>
+      </div>
+    </div>
+
+
+    <footer>
+      <p>Copyright &copy; 2020 - Fabryka Inżyniera</p>
+    </footer>
+  </body>
+</html>
