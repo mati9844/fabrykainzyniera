@@ -1,17 +1,8 @@
-from django.http import HttpResponse
-from django.template import loader
-from django.shortcuts import HttpResponseRedirect, render
-from django.contrib.auth.decorators import login_required
-
-# Create your views here.
-from django.views.generic.base import TemplateView
 from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
-from .models import Praca, ListaPrac, Opiekun
+from .models import ListaPrac
 from django.contrib.auth import get_user_model
-
-from django.conf import settings
 
 
 class HomePageView(TemplateView):
@@ -36,47 +27,24 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        object_list = ListaPrac.objects.filter(
-            Q(temat_praca__temat_praca__icontains=query)
-        )
+        query = query.strip()
+        if " " in query:
+            txt = query.split()
+            object_list = ListaPrac.objects.filter(
+                (Q(opiekun_praca__last_name__icontains=txt[0]) &
+                 Q(opiekun_praca__first_name__icontains=txt[1])) |
+                (Q(opiekun_praca__first_name__icontains=txt[0]) &
+                 Q(opiekun_praca__last_name__icontains=txt[1])))
+        else:
+            object_list = ListaPrac.objects.filter(
+                Q(opiekun_praca__last_name__icontains=query) |
+                Q(opiekun_praca__first_name__icontains=query))
         return object_list
 
-    # queryset = Uczen.objects.filter(imie_uczen__icontains='Da')  # new
-
 
 '''
-
-def search(request):
-    query = request.GET.get('q')
-    context_dict = None
-    if query:
-        results = Uczen.objects.filter(imie_uczen=query)
-        if results.count():
-            context_dict['results'] = results
-        else:
-            context_dict['no_results'] = query
-    return render(request, "test.html", context_dict)
-
-
-'''
-
-
-'''
-
-class AuthRequiredMiddleware(object):
-    def __init__(self, get_response):
-        self.get_response = get_response
-
-    def __call__(self, request):
-        # Code to be executed for each request before
-        # the view (and later middleware) are called.
-
-        response = self.get_response(request)
-        if not request.user.is_authenticated():
-            return HttpResponseRedirect('accounts/login/')
-
-        # Code to be executed for each request/response after
-        # the view is called.
-
-        return response
+class ClientUploadDelete(DeleteView):
+    model = ListaPrac
+    success_url = reverse_lazy('dashboard')
+    template_name = 'profile.html'
 '''

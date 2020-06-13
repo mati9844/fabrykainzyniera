@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 #
 
 urlpatterns = [
-    #path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('',  views.HomePageView.as_view(), name='index'),
     path('user/', login_required(views.ProfileView.as_view()), name='home'),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),

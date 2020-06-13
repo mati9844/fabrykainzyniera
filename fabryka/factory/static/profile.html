@@ -5,7 +5,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Strona główna</title>
+    <title>Profil</title>
     <link rel="stylesheet" href="{% static 'menu_bar.css' %}">
     <link rel="stylesheet" href="{% static 'profile.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,19 +35,38 @@
 
 
       <div class="central-container">
-      <img src="{% static 'images/avatar.png' %}">
-        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <img src="{% static 'images/avatar.png' %}">
+        <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
         <form action="{% url 'logout' %}">
-          <button>Wyloguj</button>
+          <button>WYLOGUJ</button>
         </form>
         <h2>Lista dostępnych prac</h2>
-        <ol>
+
           {% for ListaPrac in object_list %}
-            <li>
-              {{ ListaPrac.temat_praca }}
-            </li>
+            <div class="project-container">
+
+              <div class="topic-section">
+                <h3>Temat {{ forloop.counter }}</h3>
+                <h4>{{ ListaPrac.termin_praca }} 
+                    {% if ListaPrac.uczen_praca == None %}
+                    Nieprzypisano
+                    {% else %}
+                      {{ListaPrac.uczen_praca}} 
+                    {% endif %}
+                <form action="{% url 'home' %}" method="get">
+                  <button type="submit" name="{{ ListaPrac.id }}"><i class="fa fa-cog"></i></button>
+                </form>
+                </h4>
+              </div>
+
+                <h4>{{ ListaPrac.temat_praca }}</h4>
+
+            </div>
           {% endfor %}
-        </ol>
+
+        <form action="{% url 'home' %}" method="get">
+          <button id="add_btn" type="submit" name="add_btn">Dodaj pracę</button>
+        </form>
       </div>
     
 

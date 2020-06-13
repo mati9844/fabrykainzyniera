@@ -1,0 +1,65 @@
+.central-container {
+  margin: auto;
+  top: 20%;
+  margin-bottom: 50px;
+  width: 1200px;
+  text-align: center;
+}
+
+.all-projects-container {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.project-container {
+  border-top: 1px solid gray;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: left;
+  font-weight: normal;
+}
+
+h3 {
+  width: 30%;
+  float: left;
+  font-size: 24px;
+  text-align: left;
+  font-weight: normal;
+  margin: 10px 10px;
+}
+
+h4 {
+  font-size: 17px;
+  font-weight: lighter;
+  text-align: left;
+  float: right;
+  margin: 10px 0;
+  width: 60%;
+}
+
+@media screen and (max-width: 1200px) {
+  .central-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .central-container {
+    width: 100%;
+  }
+  .central-container button {
+    float: none;
+    width: 100%;
+    font-size: 25px;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+}

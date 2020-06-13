@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title>Wynik wyszukiwania</title>
     <link rel="stylesheet" href="{% static 'menu_bar.css' %}">
-    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'search_results.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -32,18 +32,16 @@
       </nav>
     </header>
 
-<div class="parallax">
 <div class="central-container">
-  <h1>Wynik wyszukiwania</h1>
-
-  <ol>
-    {% for ListaPrac in object_list %}
-      <li>
-        {{ ListaPrac.temat_praca }} - {{ ListaPrac.opiekun_praca }}
-      </li>
-    {% endfor %}
-  </ol>
-</div>
+  <h2>Lista znalezionych prac</h2>
+  <div class="all-projects-container">
+        {% for ListaPrac in object_list %}
+        <div class="project-container">
+          <h3>{{ ListaPrac.opiekun_praca.last_name }} {{ ListaPrac.opiekun_praca.first_name }}</h3>
+          <h4>{{ ListaPrac.temat_praca }}</h4>
+        </div>
+        {% endfor %}
+  </div>
 </div>
 
     <footer>
