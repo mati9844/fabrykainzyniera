@@ -9,14 +9,25 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
 from .models import Praca, ListaPrac, Opiekun
+from django.contrib.auth import get_user_model
+
+from django.conf import settings
 
 
 class HomePageView(TemplateView):
     template_name = 'index.html'
 
 
-class ProfileView(TemplateView):
+class ProfileView(ListView):
+    model = ListaPrac
     template_name = 'profile.html'
+
+    def get_queryset(self):
+        query = self.request.user.username
+        User = get_user_model()
+        object_list = ListaPrac.objects.filter(
+            Q(opiekun_praca__username=query))
+        return object_list
 
 
 class SearchResultsView(ListView):
@@ -25,8 +36,8 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        object_list = Praca.objects.filter(
-            Q(temat_praca__icontains=query)
+        object_list = ListaPrac.objects.filter(
+            Q(temat_praca__temat_praca__icontains=query)
         )
         return object_list
 

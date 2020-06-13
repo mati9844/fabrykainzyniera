@@ -17,7 +17,7 @@ class Uczen(models.Model):
     imie_uczen = models.CharField(max_length=200)
     nazwisko_uczen = models.CharField(max_length=200)
     indeks_uczen = models.IntegerField(default=0)
-    wydzial_uczen = models.ForeignKey(Wydzial, on_delete=models.CASCADE)
+    wydzial_uczen = models.ForeignKey('Wydzial', on_delete=models.CASCADE)
 
     def __str__(self):
         s = str(self.imie_uczen) + ' ' + str(self.nazwisko_uczen) + \
@@ -25,6 +25,7 @@ class Uczen(models.Model):
         return s
 
 
+# to delete but have to recreate database/migrations
 class Opiekun(models.Model):
     imie_opiekun = models.CharField(max_length=200)
     nazwisko_opiekun = models.CharField(max_length=200)
@@ -33,6 +34,7 @@ class Opiekun(models.Model):
         s = str(self.imie_opiekun) + ' ' + \
             str(self.nazwisko_opiekun) + ' ' + str(self.indeks_opiekun)
         return s
+#
 
 
 class Praca(models.Model):
@@ -44,7 +46,7 @@ class Praca(models.Model):
 
 
 class ListaPrac(models.Model):
-    temat_praca = models.ForeignKey(Praca, on_delete=models.CASCADE)
+    temat_praca = models.ForeignKey('Praca', on_delete=models.CASCADE)
     uczen_praca = models.ForeignKey(
         Uczen, on_delete=models.CASCADE, blank=True, null=True)
     termin_praca = models.DateTimeField(default=datetime.now, blank=True)

@@ -1,0 +1,33 @@
+.central-container {
+  margin: auto auto;
+
+  width: 10em;
+  text-align: center;
+}
+
+.central-container img {
+  position: relative;
+  left: 0;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 200px;
+  height: auto;
+}
+
+.central-container button {
+  text-align: center;
+  padding: 15px 30px;
+  margin-top: 34px;
+  color: DarkSlateGrey;
+  border: 1px solid DarkSlateGrey;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.central-container button:hover {
+  border: 1px solid DarkSlateGrey;
+  color: white;
+  background-color: DarkSlateGrey;
+}

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title>Strona główna</title>
     <link rel="stylesheet" href="{% static 'menu_bar.css' %}">
-    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -33,12 +33,23 @@
     </header>
 
 
-    <div class="parallax">
+
       <div class="central-container">
-        <h2>{{ user.username }}</h2>
-        <p><a href="{% url 'logout' %}">Wyloguj</a></p>
+      <img src="{% static 'images/avatar.png' %}">
+        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <form action="{% url 'logout' %}">
+          <button>Wyloguj</button>
+        </form>
+        <h2>Lista dostępnych prac</h2>
+        <ol>
+          {% for ListaPrac in object_list %}
+            <li>
+              {{ ListaPrac.temat_praca }}
+            </li>
+          {% endfor %}
+        </ol>
       </div>
-    </div>
+    
 
 
     <footer>
