@@ -1,8 +1,12 @@
 from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
-from .models import ListaPrac
+from .models import ListaPrac, Praca
 from django.contrib.auth import get_user_model
+
+from django.shortcuts import render
+from datetime import date, datetime
+from django.views.generic.edit import FormMixin
 
 
 class HomePageView(TemplateView):
@@ -19,6 +23,24 @@ class ProfileView(ListView):
         object_list = ListaPrac.objects.filter(
             Q(opiekun_praca__username=query))
         return object_list
+
+    def get(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            if request.POST.get('temat_praca'):
+                listaPrac = ListaPrac()
+                praca = Praca()
+                praca.temat_praca = request.POST.get('temat_praca')
+                praca.save()
+                listaPrac.temat_praca = praca
+                listaPrac.opiekun_praca = request.user
+                listaPrac.save()
+        return super(ProfileView, self).get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.get(request, *args, **kwargs)
+
+
+# ListaPrac.objects.filter(id=id).delete()
 
 
 class SearchResultsView(ListView):

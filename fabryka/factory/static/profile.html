@@ -49,7 +49,7 @@
                 <h3>Temat {{ forloop.counter }}</h3>
                 <h4>{{ ListaPrac.termin_praca }} 
                     {% if ListaPrac.uczen_praca == None %}
-                    Nieprzypisano
+                    <b>Nieprzypisano</b>
                     {% else %}
                       {{ListaPrac.uczen_praca}} 
                     {% endif %}
@@ -64,8 +64,12 @@
             </div>
           {% endfor %}
 
-        <form action="{% url 'home' %}" method="get">
-          <button id="add_btn" type="submit" name="add_btn">Dodaj pracę</button>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            Temat: <br/>
+            <textarea cols="35" rows="8" name="temat_praca">
+            </textarea><br/>
+          <button id="add_btn" type="submit">Dodaj pracę</button>
         </form>
       </div>
     

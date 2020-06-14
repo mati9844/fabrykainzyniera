@@ -37,7 +37,17 @@
   <div class="all-projects-container">
         {% for ListaPrac in object_list %}
         <div class="project-container">
-          <h3>{{ ListaPrac.opiekun_praca.last_name }} {{ ListaPrac.opiekun_praca.first_name }}</h3>
+          <h3>
+            {{ ListaPrac.opiekun_praca.last_name }} 
+            {{ ListaPrac.opiekun_praca.first_name }} 
+            <br>
+            Stan: 
+            {% if ListaPrac.uczen_praca %}
+              zajęta
+            {% else %}
+              wolna
+            {% endif %}
+          </h3>
           <h4>{{ ListaPrac.temat_praca }}</h4>
         </div>
         {% endfor %}
