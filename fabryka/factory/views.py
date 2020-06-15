@@ -35,8 +35,14 @@ class ProfileView(ListView):
                 listaPrac.opiekun_praca = request.user
                 listaPrac.save()
             if request.POST.get('del_btn'):
-                ListaPrac.objects.filter(
-                    id=request.POST.get('del_btn')).delete()
+                try:
+                    pointed_topic = ListaPrac.objects.get(
+                        pk=request.POST.get('del_btn'))
+                    # check if user is owner of topic
+                    if pointed_topic.opiekun_praca == self.request.user:
+                        pointed_topic.delete()
+                except:
+                    pass
         return super(ProfileView, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
