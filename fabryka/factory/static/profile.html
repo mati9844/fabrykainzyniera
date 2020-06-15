@@ -53,8 +53,9 @@
                     {% else %}
                       {{ListaPrac.uczen_praca}} 
                     {% endif %}
-                <form action="{% url 'home' %}" method="get">
-                  <button type="submit" name="{{ ListaPrac.id }}"><i class="fa fa-cog"></i></button>
+                <form action="#" method="post">
+                  {% csrf_token %}
+                  <button type="submit" name="del_btn" value="{{ListaPrac.id}}" ><i class="fa fa-cog"></i></button>
                 </form>
                 </h4>
               </div>

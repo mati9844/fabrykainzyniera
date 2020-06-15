@@ -34,13 +34,13 @@ class ProfileView(ListView):
                 listaPrac.temat_praca = praca
                 listaPrac.opiekun_praca = request.user
                 listaPrac.save()
+            if request.POST.get('del_btn'):
+                ListaPrac.objects.filter(
+                    id=request.POST.get('del_btn')).delete()
         return super(ProfileView, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         return self.get(request, *args, **kwargs)
-
-
-# ListaPrac.objects.filter(id=id).delete()
 
 
 class SearchResultsView(ListView):
@@ -62,11 +62,3 @@ class SearchResultsView(ListView):
                 Q(opiekun_praca__last_name__icontains=query) |
                 Q(opiekun_praca__first_name__icontains=query))
         return object_list
-
-
-'''
-class ClientUploadDelete(DeleteView):
-    model = ListaPrac
-    success_url = reverse_lazy('dashboard')
-    template_name = 'profile.html'
-'''
