@@ -1,3 +1,63 @@
+/* new */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  border-radius: 15px;
+  background-color: white;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 400px; /* Could be more or less, depending on screen size */
+}
+
+.container {
+  padding: 16px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* end */
+
+#data {
+  float: left;
+  border-radius: 15px;
+  border: 1px solid DarkSlateGrey;
+  padding: 15px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.container h2 {
+  margin-bottom: 0px;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
@@ -85,7 +145,7 @@
   float: right;
   position: relative;
   padding: 0px 20px;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0px 10px 0px 0px;
   font-size: 25px;
   cursor: pointer;
   margin: 0;
@@ -133,6 +193,11 @@
   background-color: DarkSlateGrey;
 }
 
+#settings_button {
+  border-radius: 10px 0px 0px 0px;
+  margin-right: -1px;
+}
+
 @media screen and (max-width: 1200px) {
   .central-container {
     width: 100%;
@@ -145,7 +210,7 @@
   }
   .central-container button {
     float: none;
-    width: 100%;
+    width: 50%;
     font-size: 25px;
     margin: 0;
     margin-bottom: 4px;

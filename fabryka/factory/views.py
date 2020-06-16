@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
-from .models import ListaPrac, Praca
+from .models import ListaPrac, Praca, Uczen, Wydzial
 from django.contrib.auth import get_user_model
 
 from django.shortcuts import render
@@ -40,9 +40,27 @@ class ProfileView(ListView):
                         pk=request.POST.get('del_btn'))
                     # check if user is owner of topic
                     if pointed_topic.opiekun_praca == self.request.user:
-                        pointed_topic.delete()
+                        pointed_topic.temat_praca.delete()
                 except:
                     pass
+
+            if request.POST.get('change_btn'):
+                pointed_topic = ListaPrac.objects.get(
+                    pk=request.POST.get('change_btn'))
+                if pointed_topic.opiekun_praca == self.request.user:
+                    uczen = Uczen()
+                    uczen.imie_uczen = request.POST.get('student_first_name')
+                    uczen.nazwisko_uczen = request.POST.get(
+                        'student_last_name')
+                    uczen.indeks_uczen = request.POST.get('student_index')
+                    uczen.wydzial_uczen = Wydzial.objects.first()
+                    uczen.save()
+                    pointed_topic.uczen_praca = uczen
+                    pointed_topic.save()
+                    # print(request.POST.get('change_btn'))
+                    # print(request.POST.get('student_first_name'))
+                    # print(request.POST.get('student_last_name'))
+                    # print(request.POST.get('student_index'))
         return super(ProfileView, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
