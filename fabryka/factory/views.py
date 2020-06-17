@@ -56,6 +56,7 @@ class ProfileView(ListView):
                     uczen.wydzial_uczen = Wydzial.objects.first()
                     uczen.save()
                     pointed_topic.uczen_praca = uczen
+                    pointed_topic.termin_praca = datetime.now()
                     pointed_topic.save()
                     # print(request.POST.get('change_btn'))
                     # print(request.POST.get('student_first_name'))

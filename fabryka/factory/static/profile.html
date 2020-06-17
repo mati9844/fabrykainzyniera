@@ -48,7 +48,7 @@
 
               <div class="topic-section">
                 <h3>Temat {{ forloop.counter }}</h3>
-                <h4>{{ ListaPrac.termin_praca }} 
+                <h4>{{ ListaPrac.termin_praca|date:"Y-m-d" }},
                     {% if ListaPrac.uczen_praca == None %}
                     <b>Nieprzypisano</b>
                     {% else %}
